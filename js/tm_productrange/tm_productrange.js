@@ -57,7 +57,7 @@ function populateProductrange(prods) {
                     sortBy: sortByVal
                 },
                 success: function(data) {
-                    if (data !== false) {
+                    if (data !== '') {
                         var productrangeResults = $.parseJSON(data);
                         populateProductrange(productrangeResults);
                     } else {
