@@ -1,0 +1,22 @@
+<h1>Products in Range</h1>
+<div class="dashboard">
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <div class="box-account box-info">
+        <div class="box-head">
+            <h2><?php echo $this->__('Enter a Price Range For Products') ?></h2>
+        </div>
+
+        <form id="productrange-form">
+          <input type="number" class="lo" placeholder="$ Low" required min="0"></input>
+          <input type="number" class="hi" placeholder="$ High" required min="0"></input>
+          <label for="sortBy">Sort: </label>
+          <select class="sortBy">
+            <option value="ASC">Ascending</option>
+            <option value="DESC">Descending</option>
+          </select>
+          <input type="submit" />
+        </form>
+
+        <div class="productrange-products"></div>
+    </div>
+</div>

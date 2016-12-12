@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+   <modules>
+      <TM_Productrange>
+         <version>1.0.0</version>
+      </TM_Productrange>
+   </modules>
+   <frontend>
+      <layout>
+         <updates>
+            <TM_Productrange>
+               <file>tm_productrange.xml</file>
+            </TM_Productrange>
+         </updates>
+      </layout>
+      <routers>
+         <TM_Productrange>
+            <use>standard</use>
+            <args>
+               <module>TM_Productrange</module>
+               <frontName>productrange</frontName>
+            </args>
+         </TM_Productrange>
+      </routers>
+   </frontend>
+   <global>
+      <helpers>
+         <TM_Productrange>
+            <class>TM_Productrange_Helper</class>
+         </TM_Productrange>
+      </helpers>
+   </global>
+</config>

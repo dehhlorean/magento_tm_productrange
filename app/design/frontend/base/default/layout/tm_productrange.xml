@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+   <customer_account>
+      <reference name="customer_account_navigation">
+         <action method="addLink" translate="label" module="TM_Productrange">
+            <name>productrange</name>
+            <path>productrange/index/index</path>
+            <label>Product Range</label>
+         </action>
+      </reference>
+   </customer_account>
+   <tm_productrange_index_index>
+      <update handle="customer_account" />
+      <reference name="my.account.wrapper">
+         <block type="core/template" name="tm_productrange_content" template="tm_productrange/productrange.phtml" />
+      </reference>
+      <reference name="head">
+         <action method="addCss">
+            <stylesheet>tm_productrange/tm_productrange.css</stylesheet>
+         </action>
+         <action method="addJs">
+            <script>tm_productrange/tm_productrange.js</script>
+         </action>
+      </reference>
+   </tm_productrange_index_index>
+</layout>

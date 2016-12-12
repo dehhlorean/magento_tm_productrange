@@ -1,0 +1,11 @@
+.productrange-product img { float: left; margin-right: 15px; }
+.productrange-product { clear:both; display: block; overflow: hidden; margin: 25px 0; }
+.productrange-product span { display: block; }
+#productrange-form { margin-top: 25px; }
+#productrange-form input { margin: 0 5px; }
+#productrange-form input[type="number"] { width: auto; }
+@media(max-width: 900px) {
+  #productrange-form input, #productrange-form label { float: left; clear: both; margin: 7px 0; }
+  #productrange-form select { float: left; margin-left: 10px; margin-top: 5px; }
+}
+.tm-productrange-index-index .dashboard .box-account { overflow: hidden; }
