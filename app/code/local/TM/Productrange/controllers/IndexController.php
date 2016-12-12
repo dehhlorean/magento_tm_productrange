@@ -40,8 +40,7 @@ class TM_Productrange_IndexController extends Mage_Core_Controller_Front_Action 
     $lo = $this->getRequest()->getParam('lo');
     $sortBy = $this->getRequest()->getParam('sortBy');
 
-    if ((!empty($hi) || !empty($lo) || !empty($sortBy)) && (is_numeric($hi) && is_numeric($lo))) {
-
+    if (Mage::helper('TM_Productrange')->validateRequest($hi, $lo, $sortBy)) { // Validate form request input
       $productModel = Mage::getModel('catalog/product');
       $productCollection = $productModel->getCollection()
           ->setPageSize(10)
@@ -67,6 +66,10 @@ class TM_Productrange_IndexController extends Mage_Core_Controller_Front_Action 
 
       $data = json_encode($jsonProducts);
       echo $data;
+      return true;
+    } else {
+      // Invalid input data
+      return false;
     }
   }
 

@@ -27,16 +27,24 @@ function populateProductrange(prods) {
     $(document).ready(function() {
         $('#productrange-form').submit(function() {
             var url = '/productrange/index/getproducts';
-            var loVal = $('#productrange-form .lo').val();
-            var hiVal = $('#productrange-form .hi').val();
+            var loVal = Number($('#productrange-form .lo').val());
+            var hiVal = Number($('#productrange-form .hi').val());
             var sortByVal = $('#productrange-form .sortBy').val();
 
-            if (Number(hiVal) > (5 * Number(loVal))) {
-                alert('$ High range cannot be more than 5 times greater than $ Low range');
+            if ((loVal == null) || (hiVal == null)) {
+              alert('You must enter values for High range and Low range');
+              return false;
+            }
+            if ((hiVal < 0) || (loVal < 0)) {
+              alert('High range and Low range cannot be negative values');
+              return false;
+            }
+            if (hiVal > (5 * loVal)) {
+                alert('High range cannot be more than 5 times greater than Low range');
                 return false;
             }
-            if (Number(hiVal) <= Number(loVal)) {
-                alert('$ High range must be greater than $ Low range');
+            if (hiVal <= loVal) {
+                alert('High range must be greater than Low range');
                 return false;
             }
 
@@ -49,9 +57,11 @@ function populateProductrange(prods) {
                     sortBy: sortByVal
                 },
                 success: function(data) {
-                    if (data !== '') {
+                    if (data !== false) {
                         var productrangeResults = $.parseJSON(data);
                         populateProductrange(productrangeResults);
+                    } else {
+                      alert('Invalid form input');
                     }
                 }
             });
